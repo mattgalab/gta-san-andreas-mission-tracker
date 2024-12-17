@@ -176,4 +176,25 @@ function calculateAreaProgress(areaName, data) {
     return Math.round((completedAreaMissions / areaMissions) * 100); // Berechne den Fortschritt in Prozent
 }
 
+function checkCategoryCompletion() {
+    const categoryAccordions = document.querySelectorAll('.accordion');
+
+    categoryAccordions.forEach(accordion => {
+        const checkboxes = accordion.querySelectorAll('.mission-checkbox');
+        const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+        const button = accordion.querySelector('.accordion-button');
+
+        // Entferne alle vorhandenen Emoji-Spans
+        button.querySelectorAll('.category-completion-emoji').forEach(emoji => emoji.remove());
+
+        if (allChecked) {
+            const checkmarkSpan = document.createElement('span');
+            checkmarkSpan.classList.add('category-completion-emoji');
+            checkmarkSpan.textContent = '✔️';
+            button.appendChild(checkmarkSpan);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', loadMissions);
+document.addEventListener('change', checkCategoryCompletion);
