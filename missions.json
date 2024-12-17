@@ -9,17 +9,17 @@
             {
               "id": "intro",
               "name": "Introduction",
-              "completed": true
+              "completed": false
             },
             {
               "id": "big-smoke",
               "name": "Big Smoke",
-              "completed": true
+              "completed": false
             },
             {
               "id": "ryder",
               "name": "Ryder",
-              "completed": true
+              "completed": false
             }
           ]
         },
@@ -29,32 +29,32 @@
             {
               "id": "tagging",
               "name": "Tagging up Turf",
-              "completed": true
+              "completed": false
             },
             {
               "id": "cleaning-hood",
               "name": "Cleaning the Hood",
-              "completed": true
+              "completed": false
             },
             {
               "id": "drive-thru",
               "name": "Drive-thru",
-              "completed": true
+              "completed": false
             },
             {
               "id": "nines-and-aks",
               "name": "Nines and AKs",
-              "completed": true
+              "completed": false
             },
             {
               "id": "drive-by",
               "name": "Drive-by",
-              "completed": true
+              "completed": false
             },
             {
               "id": "sweets-girl",
               "name": "Sweet's Girl",
-              "completed": true
+              "completed": false
             }
           ]
         },
@@ -84,32 +84,32 @@
             {
               "id": "badlands",
               "name": "Badlands",
-              "completed": true
+              "completed": false
             },
             {
               "id": "first-date",
               "name": "First Date",
-              "completed": true
+              "completed": false
             },
             {
               "id": "king-exile",
               "name": "King in Exile",
-              "completed": true
+              "completed": false
             },
             {
               "id": "first-base",
               "name": "First Base",
-              "completed": true
+              "completed": false
             },
             {
               "id": "gone-courting",
               "name": "Gone Courting",
-              "completed": true
+              "completed": false
             },
             {
               "id": "made-in-heaven",
               "name": "Made in Heaven",
-              "completed": true
+              "completed": false
             },
             {
               "id": "wu-zi-mu",
