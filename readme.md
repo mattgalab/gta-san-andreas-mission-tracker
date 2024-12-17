@@ -5,7 +5,7 @@
 
 ## Installation
 1. Repository klonen
-2. Im Projektordner `npm install` ausführen oder install.bat ausführen
+2. Im Projektordner `npm install` oder install.bat ausführen
 
 ## Starten der Anwendung
 ```bash
