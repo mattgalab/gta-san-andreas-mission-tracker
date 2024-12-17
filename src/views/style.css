@@ -52,11 +52,6 @@ body {
             1px  1px 0 #000;
 }
 
-
-
-.progress {
-    height: 30px;
-}
 .progress-bar {
     text-shadow:
             -1px -1px 0 #000,
@@ -65,13 +60,25 @@ body {
             1px  1px 0 #000;
     text-align: center;
     color: white !important;
+
 }
 .progress-container {
-    /*display: flex;*/
-    /*text-align: center;*/
+
+    align-items: center;
     width: 150px;
     margin-left: auto;
+    position: relative;
 }
-.progress-percentage {
 
+.progress {
+    height: 30px;
+    margin-left: 10px;
+}
+
+.progress-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
