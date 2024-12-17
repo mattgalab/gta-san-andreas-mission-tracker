@@ -8,20 +8,19 @@
 </head>
 <body>
 <div class="container-fluid">
-    <header>
+    <header class="area-top position-fixed top-0 start-0 w-100">
         <img src="ressources/logo.png" alt="GTA San Andreas Mission Tracker" class="header-image d-block mx-auto">
-        <h1 class="text-center my-4 text-white"> Mission Tracker</h1>
+        <h1 class="text-center my-4 text-white">Mission Tracker</h1>
         <div class="progress my-4">
-            <div id="progress-bar" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0"
-                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div id="progress-bar" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                 <span id="progress-percentage" style="font-size: 1.5rem; font-weight: bold;">0%</span>
             </div>
         </div>
     </header>
-    <main>
-    <div id="missions-container" class="row">
-        <!-- Missions will be dynamically loaded here -->
-    </div>
+    <main class="area-main position-fixed start-1 end-0 w-100">
+        <div id="missions-container" class="row">
+            <!-- Missions will be dynamically loaded here -->
+        </div>
     </main>
 </div>
 
