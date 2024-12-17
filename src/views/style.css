@@ -1,6 +1,39 @@
+@font-face {
+    font-family: 'Pricedown';
+    src: url('ressources/fonts/Pricedown Bl.otf') format('truetype'); /* Passe den Pfad zur Schriftart an */
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    background-color: transparent;
+    font-family: 'Pricedown', Arial, sans-serif; /* Fallback auf Arial und sans-serif */
+    background-color: green;
     color: white;
+}
+
+.card-body,
+.mission-checkbox + label, /* Label der Checkboxen */
+.form-check-label {
+    font-family: Arial, sans-serif; /* Setzt Arial für besseren Lesefluss */
+    font-size: 1rem; /* Optional: Schriftgröße anpassen */
+    line-height: 1.5; /* Optional: Zeilenabstand verbessern */
+}
+.header-container {
+    position: relative;
+}
+
+.header-image {
+    width: 400px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+header {
+    padding: 10px;
+}
+
+h1.d-none {
+    display: none !important;
 }
 
 .card {
@@ -20,6 +53,7 @@ body {
 }
 
 .accordion-button {
+    font-size: 25px;
     background-color: rgba(0, 0, 0, 0.6) !important;
     color: white !important;
 }
@@ -63,22 +97,34 @@ body {
 
 }
 .progress-container {
-
     align-items: center;
     width: 150px;
-    margin-left: auto;
+    margin-right: 10px;
     position: relative;
 }
 
 .progress {
     height: 30px;
-    margin-left: 10px;
+
 }
 
 .progress-percentage {
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px  1px 0 #000,
+            1px  1px 0 #000;
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+
+}
+.category-completion-emoji{
+    margin-left: 15px;
+}
+p, small {
+    font-family: Arial, sans-serif;
 }
