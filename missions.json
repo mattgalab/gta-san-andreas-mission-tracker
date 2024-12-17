@@ -1,0 +1,479 @@
+{
+  "areas": [
+    {
+      "name": "Los Santos",
+      "categories": [
+        {
+          "name": "Beginning Missions",
+          "missions": [
+            {
+              "id": "intro",
+              "name": "Introduction",
+              "completed": true
+            },
+            {
+              "id": "big-smoke",
+              "name": "Big Smoke",
+              "completed": true
+            },
+            {
+              "id": "ryder",
+              "name": "Ryder",
+              "completed": true
+            }
+          ]
+        },
+        {
+          "name": "Sweet Missions",
+          "missions": [
+            {
+              "id": "tagging",
+              "name": "Tagging up Turf",
+              "completed": true
+            },
+            {
+              "id": "cleaning-hood",
+              "name": "Cleaning the Hood",
+              "completed": true
+            },
+            {
+              "id": "drive-thru",
+              "name": "Drive-thru",
+              "completed": true
+            },
+            {
+              "id": "nines-and-aks",
+              "name": "Nines and AKs",
+              "completed": true
+            },
+            {
+              "id": "drive-by",
+              "name": "Drive-by",
+              "completed": true
+            },
+            {
+              "id": "sweets-girl",
+              "name": "Sweet's Girl",
+              "completed": true
+            }
+          ]
+        },
+        {
+          "name": "C.R.A.S.H. Missions",
+          "missions": [
+            {
+              "id": "burning-desire",
+              "name": "Burning Desire",
+              "completed": false
+            },
+            {
+              "id": "gray-imports",
+              "name": "Gray Imports",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Countryside",
+      "categories": [
+        {
+          "name": "Countryside Missions",
+          "missions": [
+            {
+              "id": "badlands",
+              "name": "Badlands",
+              "completed": true
+            },
+            {
+              "id": "first-date",
+              "name": "First Date",
+              "completed": true
+            },
+            {
+              "id": "king-exile",
+              "name": "King in Exile",
+              "completed": true
+            },
+            {
+              "id": "first-base",
+              "name": "First Base",
+              "completed": true
+            },
+            {
+              "id": "gone-courting",
+              "name": "Gone Courting",
+              "completed": true
+            },
+            {
+              "id": "made-in-heaven",
+              "name": "Made in Heaven",
+              "completed": true
+            },
+            {
+              "id": "wu-zi-mu",
+              "name": "Wu Zi Mu",
+              "completed": false
+            },
+            {
+              "id": "farewell-my-love",
+              "name": "Farewell, My Love",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Catalina Missions",
+          "missions": [
+            {
+              "id": "tanker-commander",
+              "name": "Tanker Commander",
+              "completed": false
+            },
+            {
+              "id": "against-all-odds",
+              "name": "Against All Odds",
+              "completed": false
+            },
+            {
+              "id": "local-liquor-store",
+              "name": "Local Liquor Store",
+              "completed": false
+            },
+            {
+              "id": "small-town-bank",
+              "name": "Small Town Bank",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "The Truth Missions",
+          "missions": [
+            {
+              "id": "body-harvest",
+              "name": "Body Harvest",
+              "completed": false
+            },
+            {
+              "id": "san-fierro",
+              "name": "Are You Going to San Fierro?",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Desert",
+      "categories": [
+        {
+          "name": "Toreno Missions",
+          "missions": [
+            {
+              "id": "monster",
+              "name": "Monster",
+              "completed": false
+            },
+            {
+              "id": "highjack",
+              "name": "HighJack",
+              "completed": false
+            },
+            {
+              "id": "interdiction",
+              "name": "Interdiction",
+              "completed": false
+            },
+            {
+              "id": "verdant-meadows",
+              "name": "Verdant Meadows",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Airstrip Missions",
+          "missions": [
+            {
+              "id": "learning-to-fly",
+              "name": "Learning to Fly",
+              "completed": false
+            },
+            {
+              "id": "noe",
+              "name": "N.O.E.",
+              "completed": false
+            },
+            {
+              "id": "stowaway",
+              "name": "Stowaway",
+              "completed": false
+            },
+            {
+              "id": "black-project",
+              "name": "Black Project",
+              "completed": false
+            },
+            {
+              "id": "green-goo",
+              "name": "Green Goo",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Fierro",
+      "categories": [
+        {
+          "name": "Garage Missions",
+          "missions": [
+            {
+              "id": "wear-flowers",
+              "name": "Wear Flowers In Your Hair",
+              "completed": false
+            },
+            {
+              "id": "deconstruction",
+              "name": "Deconstruction",
+              "completed": false
+            },
+            {
+              "id": "we-tip",
+              "name": "555 WE TIP",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Syndicate Missions",
+          "missions": [
+            {
+              "id": "photo-opportunity",
+              "name": "Photo Opportunity",
+              "completed": false
+            },
+            {
+              "id": "jizzy",
+              "name": "Jizzy",
+              "completed": false
+            },
+            {
+              "id": "t-bone-mendez",
+              "name": "T-Bone Mendez",
+              "completed": false
+            },
+            {
+              "id": "mike-toreno",
+              "name": "Mike Toreno",
+              "completed": false
+            },
+            {
+              "id": "outrider",
+              "name": "Outrider",
+              "completed": false
+            },
+            {
+              "id": "snail-trail",
+              "name": "Snail Trail",
+              "completed": false
+            },
+            {
+              "id": "ice-cold-killa",
+              "name": "Ice Cold Killa",
+              "completed": false
+            },
+            {
+              "id": "pier-69",
+              "name": "Pier 69",
+              "completed": false
+            },
+            {
+              "id": "torenos-last-fight",
+              "name": "Toreno's Last Fight",
+              "completed": false
+            },
+            {
+              "id": "yay-ka-boom-boom",
+              "name": "Yay Ka-Boom-Boom",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Las Venturas",
+      "categories": [
+        {
+          "name": "Casino Missions",
+          "missions": [
+            {
+              "id": "fender-ketchup",
+              "name": "Fender Ketchup",
+              "completed": false
+            },
+            {
+              "id": "explosive-situation",
+              "name": "Explosive Situation",
+              "completed": false
+            },
+            {
+              "id": "youve-had-chips",
+              "name": "You've Had Your Chips",
+              "completed": false
+            },
+            {
+              "id": "don-peyote",
+              "name": "Don Peyote",
+              "completed": false
+            },
+            {
+              "id": "intensive-care",
+              "name": "Intensive Care",
+              "completed": false
+            },
+            {
+              "id": "misappropriation",
+              "name": "Misappropriation",
+              "completed": false
+            },
+            {
+              "id": "meat-business",
+              "name": "The Meat Business",
+              "completed": false
+            },
+            {
+              "id": "fish-in-barrel",
+              "name": "Scene: Fish in a Barrel",
+              "completed": false
+            },
+            {
+              "id": "madd-dogg",
+              "name": "Madd Dogg",
+              "completed": false
+            },
+            {
+              "id": "freefall",
+              "name": "Freefall",
+              "completed": false
+            },
+            {
+              "id": "high-noon",
+              "name": "High Noon",
+              "completed": false
+            },
+            {
+              "id": "saint-marks-bistro",
+              "name": "Saint Mark's Bistro",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Heist Missions",
+          "missions": [
+            {
+              "id": "architectural-espionage",
+              "name": "Architectural Espionage",
+              "completed": false
+            },
+            {
+              "id": "key-to-her-heart",
+              "name": "Key to Her Heart",
+              "completed": false
+            },
+            {
+              "id": "dam-and-blast",
+              "name": "Dam and Blast",
+              "completed": false
+            },
+            {
+              "id": "cop-wheels",
+              "name": "Cop Wheels",
+              "completed": false
+            },
+            {
+              "id": "up-up-away",
+              "name": "Up, Up, and Away",
+              "completed": false
+            },
+            {
+              "id": "breaking-bank",
+              "name": "Breaking the Bank at Caligula's",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Return to Los Santos",
+      "categories": [
+        {
+          "name": "Mansion Missions",
+          "missions": [
+            {
+              "id": "home-in-hills",
+              "name": "A Home in the Hills",
+              "completed": false
+            },
+            {
+              "id": "vertical-bird",
+              "name": "Vertical Bird",
+              "completed": false
+            },
+            {
+              "id": "home-coming",
+              "name": "Home Coming",
+              "completed": false
+            },
+            {
+              "id": "cut-throat-business",
+              "name": "Cut Throat Business",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Grove Street Missions",
+          "missions": [
+            {
+              "id": "beat-down-bdup",
+              "name": "Beat Down on B-Dup",
+              "completed": false
+            },
+            {
+              "id": "grove-4-life",
+              "name": "Grove 4 Life",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Riot Missions",
+          "missions": [
+            {
+              "id": "riot",
+              "name": "Riot",
+              "completed": false
+            },
+            {
+              "id": "los-desperados",
+              "name": "Los Desperados",
+              "completed": false
+            },
+            {
+              "id": "end-of-line",
+              "name": "End of the Line",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

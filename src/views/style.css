@@ -1,0 +1,74 @@
+body {
+    background-color: transparent;
+    color: white;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.card-body {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.accordion-item {
+    background-color: transparent !important;
+}
+
+.accordion-button {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    color: white !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+
+.text-white {
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px  1px 0 #000,
+            1px  1px 0 #000;
+}
+
+.form-check-label {
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px  1px 0 #000,
+            1px  1px 0 #000;
+}
+
+.progress {
+    height: 30px;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    margin-left: auto;
+}
+.progress-bar {
+
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px  1px 0 #000,
+            1px  1px 0 #000;
+    text-align: center;
+    color: white !important;
+}

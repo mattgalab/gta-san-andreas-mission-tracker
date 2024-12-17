@@ -1,0 +1,13 @@
+{
+  "name": "gta-san-andreas-mission-tracker",
+  "version": "1.0.0",
+  "description": "Mission tracker for GTA San Andreas",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs-extra": "^11.2.0"
+  }
+}
