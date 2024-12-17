@@ -67,11 +67,11 @@ body {
     color: white !important;
 }
 .progress-container {
-
-
     /*display: flex;*/
     /*text-align: center;*/
     width: 150px;
-    height: 30px;
     margin-left: auto;
+}
+.progress-percentage {
+
 }

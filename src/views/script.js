@@ -14,6 +14,7 @@ async function loadMissions() {
         areaCardHeader.classList.add('card-header', 'text-white', 'bg-primary', 'd-flex', 'justify-content-between', 'align-items-center'); // Füge d-flex, justify-content-between und align-items-center hinzu
 
         const areaNameSpan = document.createElement('span');
+        areaNameSpan.classList.add('areaName');
         areaNameSpan.textContent = area.name;
         areaCardHeader.appendChild(areaNameSpan);
 
@@ -23,7 +24,6 @@ async function loadMissions() {
                                     <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                  </div>
                                  <span class="progress-percentage">0%</span>`;
-
         areaCardHeader.appendChild(progressContainer);
 
         areaCard.appendChild(areaCardHeader);
