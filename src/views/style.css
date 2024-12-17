@@ -52,18 +52,12 @@ body {
             1px  1px 0 #000;
 }
 
+
+
 .progress {
     height: 30px;
 }
-
-.progress-container {
-    display: flex;
-    align-items: center;
-    width: 150px;
-    margin-left: auto;
-}
 .progress-bar {
-
     text-shadow:
             -1px -1px 0 #000,
             1px -1px 0 #000,
@@ -71,4 +65,13 @@ body {
             1px  1px 0 #000;
     text-align: center;
     color: white !important;
+}
+.progress-container {
+
+
+    /*display: flex;*/
+    /*text-align: center;*/
+    width: 150px;
+    height: 30px;
+    margin-left: auto;
 }

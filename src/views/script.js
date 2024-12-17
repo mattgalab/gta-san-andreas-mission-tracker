@@ -13,18 +13,18 @@ async function loadMissions() {
         const areaCardHeader = document.createElement('div');
         areaCardHeader.classList.add('card-header', 'text-white', 'bg-primary', 'd-flex', 'justify-content-between', 'align-items-center'); // Füge d-flex, justify-content-between und align-items-center hinzu
 
+        const areaNameSpan = document.createElement('span');
+        areaNameSpan.textContent = area.name;
+        areaCardHeader.appendChild(areaNameSpan);
 
         const progressContainer = document.createElement('div');
         progressContainer.classList.add('progress-container');
         progressContainer.innerHTML = `<div class="progress">
-                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                  </div>
                                  <span class="progress-percentage">0%</span>`;
-        areaCardHeader.appendChild(progressContainer);
 
-        const areaNameSpan = document.createElement('span');
-        areaNameSpan.textContent = area.name;
-        areaCardHeader.appendChild(areaNameSpan);
+        areaCardHeader.appendChild(progressContainer);
 
         areaCard.appendChild(areaCardHeader);
 
