@@ -4,41 +4,26 @@ async function loadMissions() {
     const container = document.getElementById('missions-container');
 
     data.areas.forEach((area, areaIndex) => {
-        // Wrapper für das Area-Accordion
         const areaAccordion = document.createElement('div');
         areaAccordion.classList.add('accordion', 'mb-3');
         areaAccordion.id = `area-accordion-${areaIndex}`;
 
-        // Item innerhalb des Accordions
         const areaAccordionItem = document.createElement('div');
         areaAccordionItem.classList.add('accordion-item');
 
-        // Header des Accordions
         const areaHeader = document.createElement('h2');
-        areaHeader.classList.add('accordion-header', 'd-flex', 'justify-content-between', 'align-items-center');
+        areaHeader.classList.add('accordion-header');
 
-        // Button für den Namen der Area
         const areaButton = document.createElement('button');
-        areaButton.classList.add('accordion-button', 'collapsed', 'text-white', 'bg-primary', 'flex-grow-1');
+        areaButton.classList.add('accordion-button', 'collapsed', 'text-white', 'bg-primary');
         areaButton.setAttribute('type', 'button');
         areaButton.setAttribute('data-bs-toggle', 'collapse');
         areaButton.setAttribute('data-bs-target', `#area-collapse-${areaIndex}`);
         areaButton.setAttribute('aria-expanded', 'false');
         areaButton.textContent = area.name;
 
-        // Fortschrittsbalken für die Area
-        const progressContainer = document.createElement('div');
-        progressContainer.classList.add('progress-container', 'd-flex', 'align-items-center', 'ms-3');
-        progressContainer.innerHTML = `
-            <div class="progress" style="width: 150px;">
-                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <span class="progress-percentage ms-2">0%</span>`;
-
         areaHeader.appendChild(areaButton);
-        areaHeader.appendChild(progressContainer);
 
-        // Collapse-Element für den Content
         const areaCollapse = document.createElement('div');
         areaCollapse.id = `area-collapse-${areaIndex}`;
         areaCollapse.classList.add('accordion-collapse', 'collapse');
@@ -46,7 +31,6 @@ async function loadMissions() {
         const areaBodyWrapper = document.createElement('div');
         areaBodyWrapper.classList.add('accordion-body');
 
-        // Inhalte der Area
         area.categories.forEach((category, categoryIndex) => {
             const categoryAccordion = document.createElement('div');
             categoryAccordion.classList.add('accordion', 'mb-2');
@@ -73,27 +57,55 @@ async function loadMissions() {
             categoryContent.classList.add('accordion-body');
 
             category.missions.forEach(mission => {
-                const missionDiv = document.createElement('div');
-                missionDiv.classList.add('form-check');
+                if (mission.counter) {
+                    // Create counter UI for Collectibles
+                    const counterContainer = document.createElement('div');
+                    counterContainer.classList.add('counter-container');
 
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.classList.add('form-check-input', 'mission-checkbox');
-                checkbox.id = `${area.name}-${category.name}-${mission.id}`;
-                checkbox.checked = mission.completed;
+                    const minusButton = document.createElement('button');
+                    minusButton.classList.add('counter-button');
+                    minusButton.textContent = '-';
+                    minusButton.addEventListener('click', () => updateCounter(mission.id, -1));
 
-                checkbox.addEventListener('change', async () => {
-                    await updateMission(area.name, category.name, mission.id);
-                });
+                    const counterValue = document.createElement('span');
+                    counterValue.classList.add('counter-value');
+                    counterValue.id = `counter-${mission.id}`;
+                    counterValue.textContent = `${mission.counter.collected} / ${mission.counter.total}`;
 
-                const label = document.createElement('label');
-                label.classList.add('form-check-label', 'text-white');
-                label.htmlFor = checkbox.id;
-                label.textContent = mission.name;
+                    const plusButton = document.createElement('button');
+                    plusButton.classList.add('counter-button');
+                    plusButton.textContent = '+';
+                    plusButton.addEventListener('click', () => updateCounter(mission.id, 1));
 
-                missionDiv.appendChild(checkbox);
-                missionDiv.appendChild(label);
-                categoryContent.appendChild(missionDiv);
+                    counterContainer.appendChild(minusButton);
+                    counterContainer.appendChild(counterValue);
+                    counterContainer.appendChild(plusButton);
+
+                    categoryContent.appendChild(counterContainer);
+                } else {
+                    // Default checkbox for regular missions
+                    const missionDiv = document.createElement('div');
+                    missionDiv.classList.add('form-check');
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.classList.add('form-check-input', 'mission-checkbox');
+                    checkbox.id = `${area.name}-${category.name}-${mission.id}`;
+                    checkbox.checked = mission.completed;
+
+                    checkbox.addEventListener('change', async () => {
+                        await updateMission(area.name, category.name, mission.id);
+                    });
+
+                    const label = document.createElement('label');
+                    label.classList.add('form-check-label', 'text-white');
+                    label.htmlFor = checkbox.id;
+                    label.textContent = mission.name;
+
+                    missionDiv.appendChild(checkbox);
+                    missionDiv.appendChild(label);
+                    categoryContent.appendChild(missionDiv);
+                }
             });
 
             categoryBody.appendChild(categoryContent);
@@ -113,7 +125,6 @@ async function loadMissions() {
     });
 
     updateProgress();
-    updateAreaProgress(data);
 }
 
 async function updateMission(areaName, categoryName, missionId) {
@@ -235,9 +246,26 @@ function checkCategoryCompletion() {
         }
     });
 }
+async function updateCounter(missionId, increment) {
+    const counterElement = document.getElementById(`counter-${missionId}`);
+    const [current, total] = counterElement.textContent.split(' / ').map(Number);
 
+    let newCount = current + increment;
+    newCount = Math.max(0, Math.min(newCount, total)); // Begrenzung zwischen 0 und total
+
+    counterElement.textContent = `${newCount} / ${total}`;
+
+    // Sende die aktualisierten Daten an den Server
+    await fetch('/update-counter', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ missionId, collected: newCount })
+    });
+
+    updateProgress(); // Optional: Fortschritt neu berechnen
+}
 
 document.addEventListener('DOMContentLoaded', loadMissions);
-
-
 document.addEventListener('change', checkCategoryCompletion);

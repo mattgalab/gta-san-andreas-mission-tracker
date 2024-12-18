@@ -9,17 +9,17 @@
             {
               "id": "intro",
               "name": "Introduction",
-              "completed": false
+              "completed": true
             },
             {
               "id": "big-smoke",
               "name": "Big Smoke",
-              "completed": false
+              "completed": true
             },
             {
               "id": "ryder",
               "name": "Ryder",
-              "completed": false
+              "completed": true
             }
           ]
         },
@@ -29,32 +29,32 @@
             {
               "id": "tagging",
               "name": "Tagging up Turf",
-              "completed": false
+              "completed": true
             },
             {
               "id": "cleaning-hood",
               "name": "Cleaning the Hood",
-              "completed": false
+              "completed": true
             },
             {
               "id": "drive-thru",
               "name": "Drive-thru",
-              "completed": false
+              "completed": true
             },
             {
               "id": "nines-and-aks",
               "name": "Nines and AKs",
-              "completed": false
+              "completed": true
             },
             {
               "id": "drive-by",
               "name": "Drive-by",
-              "completed": false
+              "completed": true
             },
             {
               "id": "sweets-girl",
               "name": "Sweet's Girl",
-              "completed": false
+              "completed": true
             }
           ]
         },
@@ -64,12 +64,12 @@
             {
               "id": "burning-desire",
               "name": "Burning Desire",
-              "completed": false
+              "completed": true
             },
             {
               "id": "gray-imports",
               "name": "Gray Imports",
-              "completed": false
+              "completed": true
             }
           ]
         }
@@ -470,6 +470,492 @@
               "id": "end-of-line",
               "name": "End of the Line",
               "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Missions",
+      "categories": [
+        {
+          "name": "General Vehicle Missions",
+          "missions": [
+            {
+              "id": "vigilante-lv12",
+              "name": "Vigilante - Level 12",
+              "completed": false
+            },
+            {
+              "id": "firefighter-lv12",
+              "name": "Firefighter - Level 12",
+              "completed": false
+            },
+            {
+              "id": "paramedic-lv12",
+              "name": "Paramedic - Level 12",
+              "completed": false
+            },
+            {
+              "id": "freight-train-lv2",
+              "name": "Freight Train - Level 2",
+              "completed": false
+            },
+            {
+              "id": "valet-parking-lv5",
+              "name": "Valet Parking - Level 5",
+              "completed": false
+            },
+            {
+              "id": "exports-board",
+              "name": "Exports Board - 30 Cars",
+              "completed": false
+            },
+            {
+              "id": "pimping-lv10",
+              "name": "Pimping - Level 10",
+              "completed": false
+            },
+            {
+              "id": "trucking",
+              "name": "Trucking (RS Haul Asset)",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Challenge Missions",
+      "categories": [
+        {
+          "name": "Bike Challenges",
+          "missions": [
+            {
+              "id": "bmx-challenge",
+              "name": "BMX Challenge",
+              "completed": false
+            },
+            {
+              "id": "nrg500-challenge",
+              "name": "NRG-500 Challenge",
+              "completed": false
+            },
+            {
+              "id": "chiliad-challenge",
+              "name": "Chiliad Challenge",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Gym Missions",
+          "missions": [
+            {
+              "id": "los-santos-gym",
+              "name": "Los Santos Gym",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-gym",
+              "name": "San Fierro Gym",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-gym",
+              "name": "Las Venturas Gym",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Race Tournaments",
+          "missions": [
+            {
+              "id": "los-santos-little-loop",
+              "name": "Los Santos - Little Loop",
+              "completed": false
+            },
+            {
+              "id": "los-santos-backroad",
+              "name": "Los Santos - Backroad Wanderer",
+              "completed": false
+            },
+            {
+              "id": "los-santos-city-circuit",
+              "name": "Los Santos - City Circuit",
+              "completed": false
+            },
+            {
+              "id": "los-santos-vinewood",
+              "name": "Los Santos - Vinewood",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-dirtbike",
+              "name": "San Fierro - Dirtbike Danger",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-dam-rider",
+              "name": "Las Venturas - Dam Rider",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-military",
+              "name": "Las Venturas - Military Service",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Stadium Events",
+          "missions": [
+            {
+              "id": "stadium-8-track",
+              "name": "8-Track",
+              "completed": false
+            },
+            {
+              "id": "stadium-blood-bowl",
+              "name": "Blood Bowl",
+              "completed": false
+            },
+            {
+              "id": "stadium-dirt-track",
+              "name": "Dirt Track",
+              "completed": false
+            },
+            {
+              "id": "stadium-kickstart",
+              "name": "Kickstart",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asset Properties",
+      "categories": [
+        {
+          "name": "Needed",
+          "missions": [
+            {
+              "id": "rc-shop",
+              "name": "Zero's RC Shop",
+              "completed": false
+            },
+            {
+              "id": "wang-autos",
+              "name": "Wang Autos",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Safehouses",
+      "categories": [
+        {
+          "name": "Needed",
+          "missions": [
+            {
+              "id": "verdant-meadows-airstrip",
+              "name": "Verdant Meadows Airstrip",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Safehouse Locations",
+          "missions": [
+            {
+              "id": "los-santos-mulholland",
+              "name": "Los Santos - D5 - Mulholland",
+              "completed": false
+            },
+            {
+              "id": "los-santos-santa-maria",
+              "name": "Los Santos - E4 - Santa Maria Beach",
+              "completed": false
+            },
+            {
+              "id": "los-santos-verona-beach",
+              "name": "Los Santos - E4 - North of Verona Beach",
+              "completed": false
+            },
+            {
+              "id": "los-santos-el-corona",
+              "name": "Los Santos - E5 - El Corona",
+              "completed": false
+            },
+            {
+              "id": "los-santos-jefferson",
+              "name": "Los Santos - E6 - Jefferson",
+              "completed": false
+            },
+            {
+              "id": "los-santos-johnson-house",
+              "name": "Los Santos - E6 - Johnson House",
+              "completed": false
+            },
+            {
+              "id": "los-santos-willow-field",
+              "name": "Los Santos - E6 - Willow Field",
+              "completed": false
+            },
+            {
+              "id": "red-county-blueberry",
+              "name": "Red County - D4 - Blueberry",
+              "completed": false
+            },
+            {
+              "id": "red-county-dillimore",
+              "name": "Red County - D4 - Dillimore",
+              "completed": false
+            },
+            {
+              "id": "red-county-mulholland",
+              "name": "Red County - D5 - N.E. of Mulholland",
+              "completed": false
+            },
+            {
+              "id": "red-county-palomino-creek",
+              "name": "Red County - C6 - Palomino Creek",
+              "completed": false
+            },
+            {
+              "id": "bone-county-graveyard",
+              "name": "Bone County - A4 - Graveyard",
+              "completed": false
+            },
+            {
+              "id": "bone-county-fort-carson",
+              "name": "Bone County - B3 - Fort Carson",
+              "completed": false
+            },
+            {
+              "id": "tierra-robada-el-quebrados",
+              "name": "Tierra Robada - B1 - El Quebrados",
+              "completed": false
+            },
+            {
+              "id": "tierra-robada-las-barrancas",
+              "name": "Tierra Robada - B2 - Las Barrancas",
+              "completed": false
+            },
+            {
+              "id": "tierra-robada-kincaid-bridge",
+              "name": "Tierra Robada - B3 - Left of Kincaid Bridge",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-palisades",
+              "name": "San Fierro - C1 - Palisades",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-china-town",
+              "name": "San Fierro - C1 - China Town",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-financial",
+              "name": "San Fierro - C1 - Financial",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-queens",
+              "name": "San Fierro - C1 - Queens",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-garcia",
+              "name": "San Fierro - C1 - Garcia",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-doherty",
+              "name": "San Fierro - C1 - Doherty",
+              "completed": false
+            },
+            {
+              "id": "san-fierro-hashbury",
+              "name": "San Fierro - D1 - Hashbury",
+              "completed": false
+            },
+            {
+              "id": "whetstone",
+              "name": "Whetstone - E2",
+              "completed": false
+            },
+            {
+              "id": "angel-pine",
+              "name": "Angel Pine - F2",
+              "completed": false
+            },
+            {
+              "id": "angel-pine-2",
+              "name": "Angel Pine - F2",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-white-wood-estates",
+              "name": "Las Venturas - A4 - White Wood Estates",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-pilson",
+              "name": "Las Venturas - A5 - North of Pilson Intersection",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-old-strip",
+              "name": "Las Venturas - A6 - Old Venturas Strip",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-creek",
+              "name": "Las Venturas - A6 - Creek",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-airport",
+              "name": "Las Venturas - B5 - North of Airport",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-pirates",
+              "name": "Las Venturas - B5 - Pirates In Men's Pants",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-ring-master",
+              "name": "Las Venturas - B6 - Ring Master",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-camels-toe",
+              "name": "Las Venturas - B6 - Camel's Toe",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-come-a-lot",
+              "name": "Las Venturas - B6 - Come-A-Lot",
+              "completed": false
+            },
+            {
+              "id": "las-venturas-rockshore",
+              "name": "Las Venturas - C6 - Rockshore",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hunter Quarry Missions",
+      "categories": [
+        {
+          "name": "Quarry Levels",
+          "missions": [
+            {
+              "id": "quarry-lv1",
+              "name": "Mission Level 1",
+              "completed": false
+            },
+            {
+              "id": "quarry-lv2",
+              "name": "Mission Level 2",
+              "completed": false
+            },
+            {
+              "id": "quarry-lv3",
+              "name": "Mission Level 3",
+              "completed": false
+            },
+            {
+              "id": "quarry-lv4",
+              "name": "Mission Level 4",
+              "completed": false
+            },
+            {
+              "id": "quarry-lv5",
+              "name": "Mission Level 5",
+              "completed": false
+            },
+            {
+              "id": "quarry-lv6",
+              "name": "Mission Level 6",
+              "completed": false
+            },
+            {
+              "id": "quarry-lv7",
+              "name": "Mission Level 7",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tags and Collectibles",
+      "categories": [
+        {
+          "name": "Tags",
+          "missions": [
+            {
+              "id": "tags-los-santos",
+              "name": "Tags (Los Santos)",
+              "completed": false,
+              "counter": {
+                "total": 100,
+                "collected": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Horseshoes",
+          "missions": [
+            {
+              "id": "horseshoes-las-venturas",
+              "name": "Horseshoes (Las Venturas)",
+              "completed": false,
+              "counter": {
+                "total": 50,
+                "collected": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Oysters",
+          "missions": [
+            {
+              "id": "oysters",
+              "name": "Oysters",
+              "completed": false,
+              "counter": {
+                "total": 50,
+                "collected": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Taxi Deliveries",
+          "missions": [
+            {
+              "id": "taxi-deliveries",
+              "name": "Taxi Deliveries",
+              "completed": false,
+              "counter": {
+                "total": 50,
+                "completed": 0
+              }
             }
           ]
         }
