@@ -63,6 +63,34 @@ app.post('/update-mission', (req, res) => {
     res.status(404).json({ error: 'Mission not found' });
 });
 
+// New Route: Update Counter
+app.post('/update-counter', (req, res) => {
+    const { missionId, collected } = req.body;
+    const missions = loadMissions();
+
+    let missionFound = false;
+
+    // Find the mission with the given ID and update its counter
+    missions.areas.forEach(area => {
+        area.categories.forEach(category => {
+            category.missions.forEach(mission => {
+                if (mission.id === missionId && mission.counter) {
+                    mission.counter.collected = Math.max(0, Math.min(collected, mission.counter.total));
+                    missionFound = true;
+                }
+            });
+        });
+    });
+
+    if (missionFound) {
+        saveMissions(missions);
+        return res.json({ message: 'Counter updated successfully' });
+    }
+
+    res.status(404).json({ error: 'Mission with counter not found' });
+});
+
+// Start server
 app.listen(PORT, () => {
     console.log(`Mission Tracker running on http://localhost:${PORT}`);
 });
