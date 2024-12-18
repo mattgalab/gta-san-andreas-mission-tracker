@@ -4,7 +4,7 @@ const path = require('path');
 const missionData = require('./mission-data');
 
 const app = express();
-const PORT = 3000;
+const PORT = 187;
 const MISSIONS_FILE = path.join(__dirname, '..', 'missions.json');
 
 // Middleware
