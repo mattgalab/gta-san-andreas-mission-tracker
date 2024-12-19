@@ -9,17 +9,17 @@
             {
               "id": "intro",
               "name": "Introduction",
-              "completed": true
+              "completed": false
             },
             {
               "id": "big-smoke",
               "name": "Big Smoke",
-              "completed": true
+              "completed": false
             },
             {
               "id": "ryder",
               "name": "Ryder",
-              "completed": true
+              "completed": false
             }
           ]
         },
@@ -29,32 +29,32 @@
             {
               "id": "tagging",
               "name": "Tagging up Turf",
-              "completed": true
+              "completed": false
             },
             {
               "id": "cleaning-hood",
               "name": "Cleaning the Hood",
-              "completed": true
+              "completed": false
             },
             {
               "id": "drive-thru",
               "name": "Drive-thru",
-              "completed": true
+              "completed": false
             },
             {
               "id": "nines-and-aks",
               "name": "Nines and AKs",
-              "completed": true
+              "completed": false
             },
             {
               "id": "drive-by",
               "name": "Drive-by",
-              "completed": true
+              "completed": false
             },
             {
               "id": "sweets-girl",
               "name": "Sweet's Girl",
-              "completed": true
+              "completed": false
             }
           ]
         },
@@ -149,12 +149,12 @@
             {
               "id": "burning-desire",
               "name": "Burning Desire",
-              "completed": true
+              "completed": false
             },
             {
               "id": "gray-imports",
               "name": "Gray Imports",
-              "completed": true
+              "completed": false
             }
           ]
         },
@@ -814,141 +814,6 @@
           ]
         },
         {
-          "name": "Race Tournaments",
-          "categories": [
-            {
-              "name": "Los Santos",
-              "missions": [
-                {
-                  "id": "little-loop",
-                  "name": "Little Loop",
-                  "completed": false
-                },
-                {
-                  "id": "backroad-wanderer",
-                  "name": "Backroad Wanderer",
-                  "completed": false
-                },
-                {
-                  "id": "city-circuit",
-                  "name": "City Circuit",
-                  "completed": false
-                },
-                {
-                  "id": "vinewood",
-                  "name": "Vinewood",
-                  "completed": false
-                },
-                {
-                  "id": "freeway",
-                  "name": "Freeway",
-                  "completed": false
-                },
-                {
-                  "id": "into-the-country",
-                  "name": "Into the Country",
-                  "completed": false
-                }
-              ]
-            },
-            {
-              "name": "San Fierro",
-              "missions": [
-                {
-                  "id": "dirtbike-danger",
-                  "name": "Dirtbike Danger",
-                  "completed": false
-                },
-                {
-                  "id": "benito-county",
-                  "name": "Benito County",
-                  "completed": false
-                },
-                {
-                  "id": "go-go-karting",
-                  "name": "Go-Go Karting",
-                  "completed": false
-                },
-                {
-                  "id": "fastlane",
-                  "name": "San Fierro Fastlane",
-                  "completed": false
-                },
-                {
-                  "id": "hills",
-                  "name": "San Fierro Hills",
-                  "completed": false
-                },
-                {
-                  "id": "country-endurance",
-                  "name": "Country Endurance",
-                  "completed": false
-                }
-              ]
-            },
-            {
-              "name": "Las Venturas Airport Freight Depot Races",
-              "missions": [
-                {
-                  "id": "sf-to-lv",
-                  "name": "San Fierro to Las Venturas",
-                  "completed": false
-                },
-                {
-                  "id": "dam-rider",
-                  "name": "Dam Rider",
-                  "completed": false
-                },
-                {
-                  "id": "desert-tricks",
-                  "name": "Desert Tricks",
-                  "completed": false
-                },
-                {
-                  "id": "lv-ringroad",
-                  "name": "Las Venturas Ringroad",
-                  "completed": false
-                }
-              ]
-            },
-            {
-              "name": "Las Venturas Airport Races",
-              "missions": [
-                {
-                  "id": "ww-aces",
-                  "name": "World War Aces",
-                  "completed": false
-                },
-                {
-                  "id": "barnstorming",
-                  "name": "Barnstorming",
-                  "completed": false
-                },
-                {
-                  "id": "military-service",
-                  "name": "Military Service",
-                  "completed": false
-                },
-                {
-                  "id": "chopper-checkpoint",
-                  "name": "Chopper Checkpoint",
-                  "completed": false
-                },
-                {
-                  "id": "whirly-bird-waypoint",
-                  "name": "Whirly Bird Waypoint",
-                  "completed": false
-                },
-                {
-                  "id": "heli-hell",
-                  "name": "Heli Hell",
-                  "completed": false
-                }
-              ]
-            }
-          ]
-        },
-        {
           "name": "Shooting Range Challenge",
           "missions": [
             {
@@ -994,6 +859,141 @@
             {
               "id": "kickstart",
               "name": "Kickstart",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Race Tournaments",
+      "categories": [
+        {
+          "name": "Los Santos",
+          "missions": [
+            {
+              "id": "little-loop",
+              "name": "Little Loop",
+              "completed": false
+            },
+            {
+              "id": "backroad-wanderer",
+              "name": "Backroad Wanderer",
+              "completed": false
+            },
+            {
+              "id": "city-circuit",
+              "name": "City Circuit",
+              "completed": false
+            },
+            {
+              "id": "vinewood",
+              "name": "Vinewood",
+              "completed": false
+            },
+            {
+              "id": "freeway",
+              "name": "Freeway",
+              "completed": false
+            },
+            {
+              "id": "into-the-country",
+              "name": "Into the Country",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "San Fierro",
+          "missions": [
+            {
+              "id": "dirtbike-danger",
+              "name": "Dirtbike Danger",
+              "completed": false
+            },
+            {
+              "id": "benito-county",
+              "name": "Benito County",
+              "completed": false
+            },
+            {
+              "id": "go-go-karting",
+              "name": "Go-Go Karting",
+              "completed": false
+            },
+            {
+              "id": "fastlane",
+              "name": "San Fierro Fastlane",
+              "completed": false
+            },
+            {
+              "id": "hills",
+              "name": "San Fierro Hills",
+              "completed": false
+            },
+            {
+              "id": "country-endurance",
+              "name": "Country Endurance",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Las Venturas Airport Freight Depot Races",
+          "missions": [
+            {
+              "id": "sf-to-lv",
+              "name": "San Fierro to Las Venturas",
+              "completed": false
+            },
+            {
+              "id": "dam-rider",
+              "name": "Dam Rider",
+              "completed": false
+            },
+            {
+              "id": "desert-tricks",
+              "name": "Desert Tricks",
+              "completed": false
+            },
+            {
+              "id": "lv-ringroad",
+              "name": "Las Venturas Ringroad",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "name": "Las Venturas Airport Races",
+          "missions": [
+            {
+              "id": "ww-aces",
+              "name": "World War Aces",
+              "completed": false
+            },
+            {
+              "id": "barnstorming",
+              "name": "Barnstorming",
+              "completed": false
+            },
+            {
+              "id": "military-service",
+              "name": "Military Service",
+              "completed": false
+            },
+            {
+              "id": "chopper-checkpoint",
+              "name": "Chopper Checkpoint",
+              "completed": false
+            },
+            {
+              "id": "whirly-bird-waypoint",
+              "name": "Whirly Bird Waypoint",
+              "completed": false
+            },
+            {
+              "id": "heli-hell",
+              "name": "Heli Hell",
               "completed": false
             }
           ]
