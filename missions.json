@@ -1299,6 +1299,67 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Tags and Collectibles",
+      "categories": [
+        {
+          "name": "Tags",
+          "missions": [
+            {
+              "id": "tags-los-santos",
+              "name": "Tags (Los Santos)",
+              "completed": false,
+              "counter": {
+                "total": 100,
+                "collected": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Horseshoes",
+          "missions": [
+            {
+              "id": "horseshoes-las-venturas",
+              "name": "Horseshoes (Las Venturas)",
+              "completed": false,
+              "counter": {
+                "total": 50,
+                "collected": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Oysters",
+          "missions": [
+            {
+              "id": "oysters",
+              "name": "Oysters",
+              "completed": false,
+              "counter": {
+                "total": 50,
+                "collected": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Taxi Deliveries",
+          "missions": [
+            {
+              "id": "taxi-deliveries",
+              "name": "Taxi Deliveries",
+              "completed": false,
+              "counter": {
+                "total": 50,
+                "completed": 0
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

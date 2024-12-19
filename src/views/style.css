@@ -1,50 +1,21 @@
 @font-face {
     font-family: 'Pricedown';
-    src: url('ressources/fonts/Pricedown Bl.otf') format('truetype'); /* Passe den Pfad zur Schriftart an */
+    src: url('ressources/fonts/Pricedown Bl.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family: 'Pricedown', Arial, sans-serif; /* Fallback auf Arial und sans-serif */
+    font-family: 'Pricedown', Arial, sans-serif;
     background-color: green;
     color: white;
 }
 
 .card-body,
-.mission-checkbox + label, /* Label der Checkboxen */
+.mission-checkbox + label,
 .form-check-label {
-    font-family: Arial, sans-serif; /* Setzt Arial für besseren Lesefluss */
-    font-size: 1rem; /* Optional: Schriftgröße anpassen */
-    line-height: 1.5; /* Optional: Zeilenabstand verbessern */
-}
-.header-container {
-    position: relative;
-}
+    font-family: Arial, sans-serif;
 
-.header-image {
-    width: 400px;
-    height: 150px;
-    display: block;
-    margin: 0 auto;
-}
-header {
-    padding: 10px;
-}
-main{
-
-}
-
-h1.d-none {
-    display: none !important;
-}
-
-.card {
-    background-color: transparent;
-}
-
-.card-header {
-    background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .card-body {
@@ -59,6 +30,9 @@ h1.d-none {
     font-size: 25px;
     background-color: rgba(0, 0, 0, 0.6) !important;
     color: white !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .accordion-button:not(.collapsed) {
@@ -89,47 +63,28 @@ h1.d-none {
             1px  1px 0 #000;
 }
 
+
+
+.progress-head {
+    height: 40px;
+    font-size: 2rem;
+}
 .progress-bar {
-    text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px  1px 0 #000,
-            1px  1px 0 #000;
+
+
     text-align: center;
     color: white !important;
-
+    background-color: #28a745;
 }
-.progress-container {
-    align-items: center;
-    width: 150px;
-    margin-right: 10px;
-    position: relative;
-}
-
-.progress {
-    height: 30px;
-
-}
-
-.progress-percentage {
+#progress-percentage {
     text-shadow:
             -1px -1px 0 #000,
             1px -1px 0 #000,
             -1px  1px 0 #000,
             1px  1px 0 #000;
+    font-size: 1.5rem;
+    font-weight: bold;
     color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-
-}
-.category-completion-emoji{
-    margin-left: 15px;
-}
-p, small {
-    font-family: Arial, sans-serif;
 }
 .counter-container {
     display: flex;
@@ -165,3 +120,4 @@ p, small {
 .counter-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+

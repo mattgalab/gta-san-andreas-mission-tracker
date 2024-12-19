@@ -22,6 +22,20 @@ async function loadMissions() {
         areaButton.setAttribute('aria-expanded', 'false');
         areaButton.textContent = area.name;
 
+        // Fortschrittsanzeige hinzufügen
+        const progressContainer = document.createElement('div');
+        progressContainer.classList.add('progress-container');
+
+        const progress = document.createElement('div');
+        progress.classList.add('progress');
+
+        const progressBar = document.createElement('div');
+        progressBar.classList.add('progress-bar', 'progress-bar-striped', 'bg-info');
+        progressBar.style.width = '0%';
+
+        progress.appendChild(progressBar);
+        progressContainer.appendChild(progress);
+        areaHeader.appendChild(progressContainer);
         areaHeader.appendChild(areaButton);
 
         const areaCollapse = document.createElement('div');
@@ -165,24 +179,18 @@ function updateAreaProgress(data) {
         const areaName = area.name;
         const areaProgress = calculateAreaProgress(areaName, data);
 
-        // Finde alle Accordion-Header-Elemente
         const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-        // Iteriere durch die Accordion-Header
         accordionHeaders.forEach(header => {
-            // Überprüfe, ob der Textinhalt des Buttons den Area-Namen enthält
             const button = header.querySelector('.accordion-button');
             if (button && button.textContent === areaName) {
-                // Finde die Progress-Container innerhalb des Headers
                 const progressContainer = header.querySelector('.progress-container');
                 if (progressContainer) {
                     const progressBar = progressContainer.querySelector('.progress-bar');
-                    const progressPercentageSpan = progressContainer.querySelector('.progress-percentage');
 
-                    // Aktualisiere den Fortschrittsbalken und die Prozentanzeige
                     progressBar.style.width = `${areaProgress}%`;
                     progressBar.setAttribute('aria-valuenow', areaProgress);
-                    progressPercentageSpan.textContent = `${areaProgress}%`;
+
                 }
             }
         });
