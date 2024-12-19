@@ -12,7 +12,14 @@
 npm start
 ```
 
-Die Anwendung ist dann unter `http://localhost:3000` erreichbar.
+Die Anwendung ist dann unter `http://localhost:187` erreichbar.
+
+## Endpunkte
+Missions tracker
+```shell
+http://localhost:187/index.html
+```
+
 
 ## Funktionen
 - ✅ Missions-Status verwalten

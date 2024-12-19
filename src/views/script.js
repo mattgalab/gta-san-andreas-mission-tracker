@@ -189,7 +189,6 @@ function updateAreaProgress(data) {
     });
 }
 
-
 function calculateAreaProgress(areaName, data) {
     let areaMissions = 0;
     let completedAreaMissions = 0;
@@ -246,6 +245,7 @@ function checkCategoryCompletion() {
         }
     });
 }
+
 async function updateCounter(missionId, increment) {
     const counterElement = document.getElementById(`counter-${missionId}`);
     const [current, total] = counterElement.textContent.split(' / ').map(Number);
