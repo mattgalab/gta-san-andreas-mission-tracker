@@ -1,3 +1,157 @@
+function calculateTagsAndCollectiblesProgress(data) {
+    if (!data?.areas?.length) {
+        console.error('Invalid data structure');
+        return { progressPercentage: 0, totalCollectibles: 0, collectedCollectibles: 0 };
+    }
+
+    try {
+        const totals = data.areas.reduce((acc, area) => {
+            const missions = area.categories?.flatMap(cat => cat.missions) ?? [];
+
+            missions.forEach(mission => {
+                const counter = mission?.counter;
+                if (typeof counter?.collected === 'number' && typeof counter?.total === 'number') {
+                    if (counter.collected < 0 || counter.total < 0) {
+                        console.warn(`Negative values found: ${counter.collected}/${counter.total}`);
+                        return;
+                    }
+                    acc.collected += counter.collected;
+                    acc.total += counter.total;
+                }
+            });
+
+            return acc;
+        }, { collected: 0, total: 0 });
+
+        return {
+            progressPercentage: totals.total > 0 ? Math.round((totals.collected / totals.total) * 100) : 0,
+            totalCollectibles: totals.total,
+            collectedCollectibles: totals.collected
+        };
+    } catch (error) {
+        console.error('Calculation error:', error);
+        return { progressPercentage: 0, totalCollectibles: 0, collectedCollectibles: 0 };
+    }
+}
+
+// Andere Kategorien Fortschritt berechnen
+function calculateOtherCategoriesProgress(data) {
+    let totalMissions = 0;
+    let completedMissions = 0;
+
+    data.areas.forEach(area => {
+        area.categories.forEach(category => {
+            category.missions.forEach(mission => {
+                if (!mission.counter) {
+                    totalMissions++;
+                    if (mission.completed) {
+                        completedMissions++;
+                    }
+                }
+            });
+        });
+    });
+
+    const progressPercentage = totalMissions > 0 ? Math.round((completedMissions / totalMissions) * 100) : 0;
+    return { progressPercentage, totalMissions, completedMissions };
+}
+
+// Gesamtfortschritt berechnen
+function calculateOverallProgress(tagsAndCollectiblesProgress, otherCategoriesProgress) {
+    const total = tagsAndCollectiblesProgress.totalCollectibles + otherCategoriesProgress.totalMissions;
+    const completed = tagsAndCollectiblesProgress.collectedCollectibles + otherCategoriesProgress.completedMissions;
+
+    const progressPercentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+    return progressPercentage;
+}
+
+// Fortschritt aktualisieren
+function updateProgress() {
+    fetch('/missions')
+        .then(response => response.json())
+        .then(data => {
+            const tagsAndCollectiblesProgress = calculateTagsAndCollectiblesProgress(data);
+            const otherCategoriesProgress = calculateOtherCategoriesProgress(data);
+            const overallProgress = calculateOverallProgress(tagsAndCollectiblesProgress, otherCategoriesProgress);
+
+            console.log("Gesamtfortschritt:", overallProgress);
+
+            // Update des Gesamtfortschritts
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = `${overallProgress}%`;
+            progressBar.setAttribute('aria-valuenow', overallProgress);
+
+            const progressText = document.getElementById('progress-percentage');
+            progressText.textContent = `${overallProgress}%`;
+
+            checkCategoryCompletion(); // Neu hinzugefügt, um den Status zu aktualisieren
+        })
+        .catch(error => console.error('Fehler beim Laden der Missionen:', error));
+}
+
+// Bereichsfortschritt aktualisieren
+async function updateAreaProgress() {
+    try {
+        // Missionsdaten abrufen
+        const response = await fetch('/missions');
+        const data = await response.json();
+
+        if (!data?.areas?.length) {
+            console.warn('Keine Bereiche vorhanden, Fortschritt wird nicht aktualisiert.');
+            return;
+        }
+
+        // Fortschritt für jeden Bereich berechnen
+        data.areas.forEach(area => {
+            let totalAreaMissions = 0;
+            let completedAreaMissions = 0;
+
+            area.categories.forEach(category => {
+                category.missions.forEach(mission => {
+                    if (mission.counter) {
+                        const { collected, total } = mission.counter;
+                        if (!isNaN(collected) && !isNaN(total)) {
+                            completedAreaMissions += collected;
+                            totalAreaMissions += total;
+                        }
+                    } else {
+                        totalAreaMissions++;
+                        if (mission.completed) {
+                            completedAreaMissions++;
+                        }
+                    }
+                });
+            });
+
+            // Bereichsfortschritt berechnen
+            const areaProgress = totalAreaMissions > 0 ? Math.round((completedAreaMissions / totalAreaMissions) * 100) : 0;
+
+            // DOM-Elemente aktualisieren
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                const button = header.querySelector('.accordion-button');
+                if (button && button.textContent.trim() === area.name) {
+                    const progressContainer = header.querySelector('.progress-container');
+                    if (progressContainer) {
+                        const progressBar = progressContainer.querySelector('.progress-bar');
+                        if (progressBar) {
+                            console.log(`Bereich: ${area.name}, Fortschritt: ${areaProgress}%`);
+                            progressBar.style.width = `${areaProgress}%`;
+                            progressBar.setAttribute('aria-valuenow', areaProgress);
+                        } else {
+                            console.warn(`Keine Progressbar für Bereich: ${area.name} gefunden.`);
+                        }
+                    }
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Fehler beim Aktualisieren des Bereichsfortschritts:', error);
+    }
+}
+
+
+// Missions-Daten laden und initialisieren
 async function loadMissions() {
     const response = await fetch('/missions');
     const data = await response.json();
@@ -22,7 +176,6 @@ async function loadMissions() {
         areaButton.setAttribute('aria-expanded', 'false');
         areaButton.textContent = area.name;
 
-        // Fortschrittsanzeige hinzufügen
         const progressContainer = document.createElement('div');
         progressContainer.classList.add('progress-container');
 
@@ -72,7 +225,6 @@ async function loadMissions() {
 
             category.missions.forEach(mission => {
                 if (mission.counter) {
-                    // Create counter UI for Collectibles
                     const counterContainer = document.createElement('div');
                     counterContainer.classList.add('counter-container');
 
@@ -97,7 +249,6 @@ async function loadMissions() {
 
                     categoryContent.appendChild(counterContainer);
                 } else {
-                    // Default checkbox for regular missions
                     const missionDiv = document.createElement('div');
                     missionDiv.classList.add('form-check');
 
@@ -109,6 +260,7 @@ async function loadMissions() {
 
                     checkbox.addEventListener('change', async () => {
                         await updateMission(area.name, category.name, mission.id);
+                        checkCategoryCompletion(); // Hinzugefügt
                     });
 
                     const label = document.createElement('label');
@@ -138,118 +290,64 @@ async function loadMissions() {
         container.appendChild(areaAccordion);
     });
 
-    updateProgress();
+    updateProgress(); // Aktualisiert den Gesamtfortschritt
+    updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
+    checkCategoryCompletion(); // Überprüft Kategorieabschlüsse
 }
 
+// Missionsstatus aktualisieren
 async function updateMission(areaName, categoryName, missionId) {
     await fetch('/update-mission', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({areaName, categoryName, missionId})
+        body: JSON.stringify({ areaName, categoryName, missionId })
     });
     updateProgress();
-    const response = await fetch('/missions');
-    const data = await response.json();
-    updateAreaProgress(data);
+    updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
 }
 
-function updateProgress() {
-    const checkboxes = document.querySelectorAll('.mission-checkbox');
-    const counters = document.querySelectorAll('.counter-value');
-    let totalMissions = 0;
-    let completedMissions = 0;
+// Counter aktualisieren
+async function updateCounter(missionId, increment) {
+    const counterElement = document.getElementById(`counter-${missionId}`);
+    const [current, total] = counterElement.textContent.split(' / ').map(Number);
 
-    // Verarbeite Checkbox-Missionen
-    checkboxes.forEach(checkbox => {
-        totalMissions++;
-        if (checkbox.checked) {
-            completedMissions++;
-        }
+    let newCount = current + increment;
+    newCount = Math.max(0, Math.min(newCount, total));
+
+    counterElement.textContent = `${newCount} / ${total}`;
+
+    await fetch('/update-counter', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ missionId, collected: newCount })
     });
 
-    // Verarbeite Zähler-Missionen
-    counters.forEach(counter => {
-        const [current, total] = counter.textContent.split(' / ').map(Number);
-        if (!isNaN(current) && !isNaN(total)) {
-            completedMissions += current;
-            totalMissions += total;
-        }
-    });
-    const progressPercentage = totalMissions > 0 ? Math.round((completedMissions / totalMissions) * 100) : 0;
-
-    const progressBar = document.getElementById('progress-bar');
-    progressBar.style.width = `${progressPercentage}%`;
-    progressBar.setAttribute('aria-valuenow', progressPercentage);
-
-    const progressText = document.getElementById('progress-percentage');
-    progressText.textContent = `${progressPercentage}%`;
+    updateProgress();
+    updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
+    checkCategoryCompletion(); // Neu hinzugefügt
 }
 
-function updateAreaProgress(data) {
-    data.areas.forEach(area => {
-        let totalAreaMissions = 0;
-        let completedAreaMissions = 0;
-
-        area.categories.forEach(category => {
-            category.missions.forEach(mission => {
-                if (mission.completed) {
-                    completedAreaMissions++;
-                } else if (mission.counter) {
-                    const { collected, total } = mission.counter;
-                    if (!isNaN(collected) && !isNaN(total)) {
-                        completedAreaMissions += collected;
-                        totalAreaMissions += total;
-                    }
-                }
-                totalAreaMissions++;
-            });
-        });
-
-        const areaProgress = totalAreaMissions > 0 ? Math.round((completedAreaMissions / totalAreaMissions) * 100) : 0;
-
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-        accordionHeaders.forEach(header => {
-            const button = header.querySelector('.accordion-button');
-            if (button && button.textContent.trim() === area.name) {
-                const progressContainer = header.querySelector('.progress-container');
-                if (progressContainer) {
-                    const progressBar = progressContainer.querySelector('.progress-bar');
-                    progressBar.style.width = `${areaProgress}%`;
-                    progressBar.setAttribute('aria-valuenow', areaProgress);
-                }
-            }
-        });
-    });
-}
-
-function calculateAreaProgress(areaName, data) {
-    let areaMissions = 0;
-    let completedAreaMissions = 0;
-
-    data.areas.forEach(area => {
-        if (area.name === areaName) {
-            area.categories.forEach(category => {
-                areaMissions += category.missions.length;
-                category.missions.forEach(mission => {
-                    if (mission.completed) {
-                        completedAreaMissions++;
-                    }
-                });
-            });
-        }
-    });
-
-    return Math.round((completedAreaMissions / areaMissions) * 100); // Berechne den Fortschritt in Prozent
-}
-
+// Kategorie-Fertigstellungsstatus überprüfen
 function checkCategoryCompletion() {
     const categoryAccordions = document.querySelectorAll('.accordion-item');
 
     categoryAccordions.forEach(accordion => {
         const checkboxes = accordion.querySelectorAll('.mission-checkbox');
+        const counters = accordion.querySelectorAll('.counter-value');
+
+        // Überprüfen, ob alle Missionen abgeschlossen sind
         const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+        const allCountersCompleted = Array.from(counters).every(counter => {
+            const [current, total] = counter.textContent.split(' / ').map(Number);
+            return current === total;
+        });
+
+        const isCategoryComplete = allChecked && allCountersCompleted;
+
         const button = accordion.querySelector('.accordion-button');
 
         // Entferne alle vorhandenen Emoji-Spans
@@ -265,7 +363,7 @@ function checkCategoryCompletion() {
             button.appendChild(textSpan);
         }
 
-        if (allChecked) {
+        if (isCategoryComplete) {
             // Emoji hinzufügen
             const checkmarkSpan = document.createElement('span');
             checkmarkSpan.classList.add('category-completion-emoji', 'ms-2');
@@ -275,32 +373,14 @@ function checkCategoryCompletion() {
             // Text durchstreichen
             textSpan.style.textDecoration = 'line-through';
         } else {
-            // Text wiederherstellen, falls nicht mehr alle Checkboxen markiert sind
+            // Text wiederherstellen, falls nicht mehr alle Missionen abgeschlossen sind
             textSpan.style.textDecoration = 'none';
         }
     });
 }
 
-async function updateCounter(missionId, increment) {
-    const counterElement = document.getElementById(`counter-${missionId}`);
-    const [current, total] = counterElement.textContent.split(' / ').map(Number);
-
-    let newCount = current + increment;
-    newCount = Math.max(0, Math.min(newCount, total)); // Begrenzung zwischen 0 und total
-
-    counterElement.textContent = `${newCount} / ${total}`;
-
-    // Sende die aktualisierten Daten an den Server
-    await fetch('/update-counter', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ missionId, collected: newCount })
+document.addEventListener('DOMContentLoaded', () => {
+    loadMissions().then(() => {
+        checkCategoryCompletion();
     });
-
-    updateProgress(); // Optional: Fortschritt neu berechnen
-}
-
-document.addEventListener('DOMContentLoaded', loadMissions);
-document.addEventListener('change', checkCategoryCompletion);
+});
