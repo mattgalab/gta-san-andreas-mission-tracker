@@ -2,6 +2,6 @@
 echo Installing nodejs
 call winget install nodejs
 echo Installing GTA San Andreas Mission Tracker...
-call "C:\Program Files\nodejs\npm.cmd" install
+call npm install
 echo Installation abgeschlossen!
 pause

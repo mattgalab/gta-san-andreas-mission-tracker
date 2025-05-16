@@ -1354,7 +1354,7 @@
               "completed": false,
               "counter": {
                 "total": 50,
-                "completed": 0
+                "collected": 0
               }
             }
           ]
