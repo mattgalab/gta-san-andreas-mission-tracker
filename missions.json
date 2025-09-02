@@ -1346,6 +1346,20 @@
           ]
         },
         {
+          "name": "Snapshots",
+          "missions": [
+            {
+              "id": "snapshots",
+              "name": "Snapshots",
+              "completed": false,
+              "counter": {
+                "total": 50,
+                "collected": 0
+              }
+            }
+          ]
+        },
+        {
           "name": "Taxi Deliveries",
           "missions": [
             {
