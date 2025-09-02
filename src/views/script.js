@@ -61,8 +61,7 @@ function calculateOverallProgress(tagsAndCollectiblesProgress, otherCategoriesPr
     const total = tagsAndCollectiblesProgress.totalCollectibles + otherCategoriesProgress.totalMissions;
     const completed = tagsAndCollectiblesProgress.collectedCollectibles + otherCategoriesProgress.completedMissions;
 
-    const progressPercentage = total > 0 ? Math.round((completed / total) * 100) : 0;
-    return progressPercentage;
+    return total > 0 ? Math.round((completed / total) * 100) : 0;
 }
 
 // Fortschritt aktualisieren
@@ -79,7 +78,7 @@ function updateProgress() {
             // Update des Gesamtfortschritts
             const progressBar = document.getElementById('progress-bar');
             progressBar.style.width = `${overallProgress}%`;
-            progressBar.setAttribute('aria-valuenow', overallProgress);
+            progressBar.setAttribute('aria-valuenow', String(overallProgress));
 
             const progressText = document.getElementById('progress-percentage');
             progressText.textContent = `${overallProgress}%`;
@@ -127,23 +126,20 @@ async function updateAreaProgress() {
             const areaProgress = totalAreaMissions > 0 ? Math.round((completedAreaMissions / totalAreaMissions) * 100) : 0;
 
             // DOM-Elemente aktualisieren
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            accordionHeaders.forEach(header => {
-                const button = header.querySelector('.accordion-button');
-                if (button && button.textContent.trim() === area.name) {
-                    const progressContainer = header.querySelector('.progress-container');
-                    if (progressContainer) {
-                        const progressBar = progressContainer.querySelector('.progress-bar');
-                        if (progressBar) {
-                            console.log(`Bereich: ${area.name}, Fortschritt: ${areaProgress}%`);
-                            progressBar.style.width = `${areaProgress}%`;
-                            progressBar.setAttribute('aria-valuenow', areaProgress);
-                        } else {
-                            console.warn(`Keine Progressbar für Bereich: ${area.name} gefunden.`);
-                        }
+            const header = document.querySelector(`.accordion-header[data-area-name="${area.name}"]`);
+            if (header) {
+                const progressContainer = header.querySelector('.progress-container');
+                if (progressContainer) {
+                    const progressBar = progressContainer.querySelector('.progress-bar');
+                    if (progressBar) {
+                        console.log(`Bereich: ${area.name}, Fortschritt: ${areaProgress}%`);
+                        progressBar.style.width = `${areaProgress}%`;
+                        progressBar.setAttribute('aria-valuenow', String(areaProgress));
+                    } else {
+                        console.warn(`Keine Progressbar für Bereich: ${area.name} gefunden.`);
                     }
                 }
-            });
+            }
         });
     } catch (error) {
         console.error('Fehler beim Aktualisieren des Bereichsfortschritts:', error);
@@ -167,6 +163,7 @@ async function loadMissions() {
 
         const areaHeader = document.createElement('h2');
         areaHeader.classList.add('accordion-header');
+        areaHeader.setAttribute('data-area-name', area.name); // DATA ATTRIBUTE ADDED
 
         const areaButton = document.createElement('button');
         areaButton.classList.add('accordion-button', 'collapsed', 'text-white', 'bg-primary');
@@ -291,7 +288,7 @@ async function loadMissions() {
     });
 
     updateProgress(); // Aktualisiert den Gesamtfortschritt
-    updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
+    await updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
     checkCategoryCompletion(); // Überprüft Kategorieabschlüsse
 }
 
@@ -305,7 +302,7 @@ async function updateMission(areaName, categoryName, missionId) {
         body: JSON.stringify({ areaName, categoryName, missionId })
     });
     updateProgress();
-    updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
+    await updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
 }
 
 // Counter aktualisieren
@@ -327,7 +324,7 @@ async function updateCounter(missionId, increment) {
     });
 
     updateProgress();
-    updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
+    await updateAreaProgress(); // Aktualisiert die Bereichsfortschritte
     checkCategoryCompletion(); // Neu hinzugefügt
 }
 
@@ -339,6 +336,11 @@ function checkCategoryCompletion() {
         const checkboxes = accordion.querySelectorAll('.mission-checkbox');
         const counters = accordion.querySelectorAll('.counter-value');
 
+        // Nur Kategorien mit Missionen prüfen
+        if (checkboxes.length === 0 && counters.length === 0) {
+            return;
+        }
+
         // Überprüfen, ob alle Missionen abgeschlossen sind
         const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
         const allCountersCompleted = Array.from(counters).every(counter => {
@@ -349,6 +351,7 @@ function checkCategoryCompletion() {
         const isCategoryComplete = allChecked && allCountersCompleted;
 
         const button = accordion.querySelector('.accordion-button');
+        if (!button) return;
 
         // Entferne alle vorhandenen Emoji-Spans
         button.querySelectorAll('.category-completion-emoji').forEach(emoji => emoji.remove());
@@ -370,11 +373,13 @@ function checkCategoryCompletion() {
             checkmarkSpan.textContent = '💯';
             button.appendChild(checkmarkSpan);
 
-            // Text durchstreichen
+            // Text durchstreichen und Klasse für Rahmen hinzufügen
             textSpan.style.textDecoration = 'line-through';
+            button.classList.add('category-complete');
         } else {
-            // Text wiederherstellen, falls nicht mehr alle Missionen abgeschlossen sind
+            // Text wiederherstellen und Klasse für Rahmen entfernen
             textSpan.style.textDecoration = 'none';
+            button.classList.remove('category-complete');
         }
     });
 }

@@ -13,13 +13,16 @@ body {
     font-family: 'Pricedown', Arial, sans-serif;
     background-color: green;
     color: white;
+    /* Make shadow thicker for better readability */
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000;
+    font-size: 18px; /* Increase base font size */
 }
 
 .card-body,
 .mission-checkbox + label,
 .form-check-label {
     font-family: Arial, sans-serif;
-
+    font-size: 1.2rem; /* Increase mission text size */
 }
 
 .card-body {
@@ -31,7 +34,8 @@ body {
 }
 
 .accordion-button {
-    font-size: 25px;
+    /* Increased font size */
+    font-size: 35px;
     background-color: black !important;
     color: white !important;
     display: flex;
@@ -51,40 +55,19 @@ body {
     filter: invert(1);
 }
 
-.text-white {
-    text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px  1px 0 #000,
-            1px  1px 0 #000;
-}
-
-.form-check-label {
-    text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px  1px 0 #000,
-            1px  1px 0 #000;
-}
-
-
-
 .progress-head {
-    height: 40px;
-    font-size: 2rem;
+    height: 60px; /* Increased height */
+    font-size: 3rem; /* Increased font size */
 }
 .progress-bar {
     text-align: center;
-    color: white !important;
-    background-color: #28a745;
+    color: black !important; /* Black text for contrast */
+    background-color: #ffc107; /* Bright yellow for progress bar */
+    font-size: 1.5rem; /* Add font size for the text inside */
+    font-weight: bold;
 }
 #progress-percentage {
-    text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px  1px 0 #000,
-            1px  1px 0 #000;
-    font-size: 1.5rem;
+    font-size: 2rem; /* Increased font size */
     font-weight: bold;
     color: white;
 }
@@ -92,29 +75,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
+    gap: 15px; /* Increased gap */
+    margin: 15px 0; /* Increased margin */
 }
 
 .counter-value {
-    font-size: 1.2rem;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 1.8rem; /* Increased font size */
     font-weight: bold;
     color: white;
-    min-width: 50px;
+    min-width: 70px; /* Increased width */
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 5px;
+    padding: 8px; /* Increased padding */
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .counter-button {
-    font-size: 1.2rem;
+    font-size: 1.8rem; /* Increased font size */
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: 8px;
+    padding: 8px 15px; /* Increased padding */
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -123,3 +107,6 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+.category-complete {
+    border: 2px solid white;
+}
